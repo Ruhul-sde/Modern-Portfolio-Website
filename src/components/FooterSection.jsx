@@ -1,5 +1,6 @@
 import { Button } from './ui/button';
 import { Github, Linkedin, Mail, Twitter, Heart } from 'lucide-react';
+import ContactDialog from './ContactDialog';
 
 export default function FooterSection() {
   return (
@@ -90,13 +91,17 @@ export default function FooterSection() {
             <p className="text-[#94A3B8] text-sm mb-4">
               Interested in collaborating? Send me a message!
             </p>
-            <Button
-              className="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white"
-              data-testid="button-contact"
-            >
-              <Mail className="w-4 h-4 mr-2" />
-              Contact Me
-            </Button>
+            <ContactDialog
+              trigger={
+                <Button
+                  className="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white"
+                  data-testid="button-contact"
+                >
+                  <Mail className="w-4 h-4 mr-2" />
+                  Contact Me
+                </Button>
+              }
+            />
           </div>
         </div>
 

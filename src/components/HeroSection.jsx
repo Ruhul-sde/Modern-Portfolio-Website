@@ -1,5 +1,6 @@
 import { Button } from './ui/button';
 import { ArrowDown, Sparkles, Code2 } from 'lucide-react';
+import ContactDialog from './ContactDialog';
 
 export default function HeroSection() {
   const scrollToSection = (id) => {
@@ -74,7 +75,7 @@ export default function HeroSection() {
           <div className="relative lg:h-[600px] flex items-center justify-center animate-slide-in-right">
             <div className="relative w-full max-w-md">
               <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] rounded-3xl blur-3xl opacity-20 animate-pulse" />
-              
+
               <div className="relative bg-[#0F172A]/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 space-y-4">
                 <div className="flex items-center gap-2 mb-6">
                   <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
@@ -131,6 +132,7 @@ export default function HeroSection() {
       >
         <ArrowDown className="w-6 h-6" />
       </button>
+      <ContactDialog />
     </section>
   );
 }
