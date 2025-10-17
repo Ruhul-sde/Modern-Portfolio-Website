@@ -4,26 +4,24 @@ import { GraduationCap, Briefcase, Award } from 'lucide-react';
 const experiences = [
   {
     type: 'work',
-    title: 'Software Developer',
-    company: 'Tech Solutions Inc.',
-    period: '2024 - Present',
-    description: 'Developing scalable web applications using React and Node.js. Leading frontend development for client projects.',
-    achievements: ['Built 5+ production apps', 'Improved performance by 40%', 'Mentored junior developers'],
-  },
-  {
-    type: 'work',
-    title: 'Junior Developer',
-    company: 'StartupHub',
-    period: '2023 - 2024',
-    description: 'Contributed to full-stack development of SaaS platform. Collaborated with designers and backend team.',
-    achievements: ['Shipped 10+ features', 'Reduced bug count by 30%', 'Implemented CI/CD pipeline'],
+    title: 'Trainee Engineer',
+    company: 'Akshay Software Technologies',
+    period: 'Ongoing',
+    description: 'Collaborating with cross-functional teams to develop and implement scalable web applications using the MERN stack. Playing a key role in designing responsive user interfaces and facilitating seamless integration of RESTful APIs.',
+    achievements: [
+      'Developed scalable web applications using MERN stack',
+      'Designed responsive user interfaces for enhanced UX',
+      'Integrated RESTful APIs to enhance functionality',
+      'Managed debugging and optimized application performance',
+      'Partnered with senior developers on project milestones'
+    ],
   },
 ];
 
 const certifications = [
-  'AWS Certified Developer',
-  'React Professional Certification',
-  'Full Stack Web Development',
+  'Full-Stack Development (MERN)',
+  'React.js Development',
+  'Java & Spring Boot',
 ];
 
 export default function ExperienceSection() {
@@ -102,7 +100,7 @@ export default function ExperienceSection() {
             <Card className="bg-gradient-to-br from-[#3B82F6]/20 to-[#06B6D4]/20 backdrop-blur-xl border-[#3B82F6]/30 p-6" data-testid="card-skills-summary">
               <h3 className="text-xl font-semibold text-[#F1F5F9] mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
-                {['React', 'TypeScript', 'Node.js', 'Python', 'TailwindCSS', 'PostgreSQL', 'MongoDB', 'AWS', 'Docker', 'Git'].map((tech) => (
+                {['Java', 'Python', 'JavaScript', 'React', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'Spring Boot', 'Git'].map((tech) => (
                   <span
                     key={tech}
                     className="px-3 py-1 bg-[#0F172A]/60 border border-white/10 rounded-full text-sm text-[#F1F5F9] font-mono"

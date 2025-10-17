@@ -40,21 +40,20 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
             <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-[#F1F5F9]">Hi, I'm a Software Developer</h3>
+              <h3 className="text-2xl font-semibold text-[#F1F5F9]">Hi, I'm Ruhul Amin</h3>
               <p className="text-[#94A3B8] leading-relaxed">
-                I'm a passionate software developer with over a year of experience building modern web applications. 
-                My journey in tech started with a curiosity about how things work, which quickly evolved into a 
-                love for creating innovative solutions that make a difference.
+                I'm a passionate Software Developer with expertise in full-stack development using Java, Python, and JavaScript. 
+                Skilled in creating scalable solutions with React.js and Node.js, and experienced in delivering high-quality 
+                projects like AI-powered apps and collaborative code editor.
               </p>
               <p className="text-[#94A3B8] leading-relaxed">
-                I specialize in full-stack development with a focus on React, TypeScript, and Node.js. 
-                I believe in writing clean, maintainable code and staying up-to-date with the latest industry trends. 
-                When I'm not coding, you'll find me exploring new technologies, contributing to open source, or sharing 
-                knowledge with the developer community.
+                I specialize in full-stack development with the MERN stack. I believe in writing clean, maintainable code 
+                and staying up-to-date with the latest industry trends. Currently working as a Trainee Engineer at Akshay 
+                Software Technologies, where I collaborate with cross-functional teams to develop scalable web applications.
               </p>
               <p className="text-[#94A3B8] leading-relaxed">
-                My approach to development is user-centered and detail-oriented. I strive to create applications 
-                that are not only functional but also delightful to use. Every project is an opportunity to learn 
+                My approach to development is user-centered and detail-oriented. I'm eager to leverage my technical skills 
+                and problem-solving abilities in a dynamic, agile environment. Every project is an opportunity to learn 
                 something new and push my skills further.
               </p>
             </div>

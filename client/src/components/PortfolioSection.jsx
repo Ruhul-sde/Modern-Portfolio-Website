@@ -8,9 +8,9 @@ export default function PortfolioSection() {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with real-time inventory management and payment integration.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      title: 'Collaborative Code Editor',
+      description: 'Real-time collaborative code editor supporting up to 20 concurrent users, enabling simultaneous code editing, debugging, and version control with conflict resolution. Improved team productivity by 35%.',
+      tech: ['React', 'Node.js', 'Socket.IO', 'CodeMirror', 'Express.js', 'Uuid'],
       gradient: 'from-blue-500 via-purple-500 to-pink-500',
       stats: { stars: 234, forks: 45, views: '12.5k' },
       status: 'Live',
@@ -18,53 +18,23 @@ export default function PortfolioSection() {
     },
     {
       id: 2,
-      title: 'AI Chat Assistant',
-      description: 'Intelligent chatbot powered by OpenAI with context-aware responses and multi-language support.',
-      tech: ['Next.js', 'OpenAI', 'TailwindCSS', 'Vercel'],
-      gradient: 'from-cyan-500 via-blue-500 to-indigo-500',
-      stats: { stars: 456, forks: 89, views: '28.3k' },
+      title: 'Blood Bank Management System',
+      description: 'Efficiently manages blood donor and recipient information, tracks blood inventory, and facilitates seamless communication between blood banks and hospitals. Enhances the overall blood donation process.',
+      tech: ['Java', 'JFrame', 'NetBeans', 'MySQL'],
+      gradient: 'from-red-500 via-rose-500 to-pink-500',
+      stats: { stars: 156, forks: 28, views: '8.3k' },
       status: 'Live',
-      category: 'AI/ML'
+      category: 'Healthcare'
     },
     {
       id: 3,
-      title: 'Portfolio Dashboard',
-      description: 'Interactive analytics dashboard with real-time data visualization and custom reporting.',
-      tech: ['React', 'D3.js', 'TypeScript', 'Firebase'],
-      gradient: 'from-violet-500 via-purple-500 to-fuchsia-500',
-      stats: { stars: 178, forks: 32, views: '9.2k' },
-      status: 'Beta',
-      category: 'Dashboard'
-    },
-    {
-      id: 4,
-      title: 'Social Media App',
-      description: 'Real-time social platform with live messaging, posts, and user interactions.',
-      tech: ['React Native', 'Socket.io', 'Express', 'PostgreSQL'],
-      gradient: 'from-orange-500 via-red-500 to-pink-500',
-      stats: { stars: 312, forks: 67, views: '15.7k' },
-      status: 'Live',
-      category: 'Mobile'
-    },
-    {
-      id: 5,
-      title: 'Task Management Tool',
-      description: 'Collaborative project management platform with Kanban boards and team analytics.',
-      tech: ['Vue.js', 'Laravel', 'MySQL', 'Redis'],
+      title: 'Personal Finance Management System',
+      description: 'Tracks over 10,000 transactions per user, categorizes expenses, and provides automated financial insights. Enhanced financial planning leading to 20% increase in savings.',
+      tech: ['Java', 'MySQL', 'Spring Boot', 'Apache POI', 'REST API'],
       gradient: 'from-green-500 via-emerald-500 to-teal-500',
-      stats: { stars: 289, forks: 54, views: '11.4k' },
+      stats: { stars: 189, forks: 34, views: '9.7k' },
       status: 'Live',
-      category: 'Productivity'
-    },
-    {
-      id: 6,
-      title: 'Weather Forecast App',
-      description: 'Beautiful weather application with hourly forecasts and location-based alerts.',
-      tech: ['Svelte', 'OpenWeather API', 'TailwindCSS'],
-      gradient: 'from-sky-500 via-blue-500 to-indigo-500',
-      stats: { stars: 145, forks: 28, views: '7.8k' },
-      status: 'Live',
-      category: 'Web App'
+      category: 'Finance'
     },
   ];
 

@@ -5,43 +5,43 @@ import { GraduationCap, Award, BookOpen, Trophy } from 'lucide-react';
 export default function EducationSection() {
   const education = [
     {
-      degree: 'Bachelor of Science in Computer Science',
-      institution: 'University of Technology',
+      degree: 'Bachelor of Technology in Computer Science and Engineering',
+      institution: 'Cooch Behar Government Engineering College',
       period: '2020 - 2024',
-      gpa: '3.8/4.0',
-      description: 'Specialized in software engineering, web development, and data structures. Participated in multiple hackathons and coding competitions.',
+      gpa: '8.56/10',
+      description: 'Graduated with expertise in software engineering, web development, and data structures. Strong foundation in algorithms and artificial intelligence.',
       achievements: [
-        'Dean\'s List for 6 consecutive semesters',
-        'Best Final Year Project Award',
-        'President of Computer Science Society',
-        'Published research paper on Machine Learning',
+        'Cumulative CGPA: 8.56',
+        'Completed Madhyamik from Mitna High School with 76.7%',
+        'Strong academic performance throughout the program',
+        'Developed multiple real-world projects',
       ],
-      courses: ['Data Structures', 'Web Development', 'Database Systems', 'Software Engineering', 'AI & ML', 'Cloud Computing'],
+      courses: ['Data Analysis', 'Software Engineering', 'Operating Systems', 'Algorithms', 'Artificial Intelligence', 'Database Systems'],
     },
   ];
 
   const certifications = [
     {
-      title: 'AWS Certified Developer - Associate',
-      issuer: 'Amazon Web Services',
+      title: 'Full-Stack Development (MERN)',
+      issuer: 'Akshay Software Technologies',
       date: '2024',
       icon: Trophy,
     },
     {
-      title: 'React Professional Certification',
-      issuer: 'Meta',
-      date: '2023',
+      title: 'React.js Development',
+      issuer: 'Professional Training',
+      date: '2024',
       icon: Award,
     },
     {
-      title: 'Full Stack Web Development',
-      issuer: 'Coursera',
+      title: 'Java Programming',
+      issuer: 'Academic Projects',
       date: '2023',
       icon: BookOpen,
     },
     {
-      title: 'TypeScript Advanced Patterns',
-      issuer: 'Frontend Masters',
+      title: 'Node.js & Express.js',
+      issuer: 'Professional Training',
       date: '2024',
       icon: Award,
     },

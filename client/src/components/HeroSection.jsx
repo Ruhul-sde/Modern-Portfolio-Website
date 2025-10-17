@@ -22,15 +22,15 @@ export default function HeroSection() {
 
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold text-[#F1F5F9] tracking-tight">
-                Software
+                Ruhul Amin
                 <br />
                 <span className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] bg-clip-text text-transparent">
-                  Developer
+                  Software Developer
                 </span>
               </h1>
               <p className="text-lg lg:text-xl text-[#94A3B8] max-w-xl leading-relaxed">
-                Building modern web experiences with clean code and creative solutions. 
-                Passionate about React, TypeScript, and crafting intuitive user interfaces.
+                Passionate about full-stack development using Java, Python, and JavaScript. 
+                Skilled in creating scalable solutions with React.js and Node.js.
               </p>
             </div>
 
@@ -56,17 +56,17 @@ export default function HeroSection() {
 
             <div className="flex items-center gap-6 pt-4">
               <div className="text-center">
-                <div className="text-3xl font-bold font-mono text-[#06B6D4]">1+</div>
-                <div className="text-sm text-[#94A3B8]">Years Exp</div>
+                <div className="text-3xl font-bold font-mono text-[#06B6D4]">8+</div>
+                <div className="text-sm text-[#94A3B8]">Months Exp</div>
               </div>
               <div className="h-12 w-px bg-white/10" />
               <div className="text-center">
-                <div className="text-3xl font-bold font-mono text-[#06B6D4]">15+</div>
+                <div className="text-3xl font-bold font-mono text-[#06B6D4]">3+</div>
                 <div className="text-sm text-[#94A3B8]">Projects</div>
               </div>
               <div className="h-12 w-px bg-white/10" />
               <div className="text-center">
-                <div className="text-3xl font-bold font-mono text-[#06B6D4]">10+</div>
+                <div className="text-3xl font-bold font-mono text-[#06B6D4]">15+</div>
                 <div className="text-sm text-[#94A3B8]">Tech Stack</div>
               </div>
             </div>
@@ -91,25 +91,25 @@ export default function HeroSection() {
                   </div>
                   <div className="pl-6 text-[#94A3B8]">
                     <span className="text-[#06B6D4]">name</span>:{' '}
-                    <span className="text-[#A3E635]">'Your Name'</span>,
+                    <span className="text-[#A3E635]">'Ruhul Amin'</span>,
                   </div>
                   <div className="pl-6 text-[#94A3B8]">
                     <span className="text-[#06B6D4]">role</span>:{' '}
-                    <span className="text-[#A3E635]">'Full Stack Developer'</span>,
+                    <span className="text-[#A3E635]">'Software Developer'</span>,
                   </div>
                   <div className="pl-6 text-[#94A3B8]">
                     <span className="text-[#06B6D4]">skills</span>:{' '}
                     <span className="text-[#F59E0B]">['</span>
-                    <span className="text-[#A3E635]">React</span>
+                    <span className="text-[#A3E635]">Java</span>
                     <span className="text-[#F59E0B]">', '</span>
-                    <span className="text-[#A3E635]">TypeScript</span>
+                    <span className="text-[#A3E635]">React</span>
                     <span className="text-[#F59E0B]">', '</span>
                     <span className="text-[#A3E635]">Node.js</span>
                     <span className="text-[#F59E0B]">']</span>,
                   </div>
                   <div className="pl-6 text-[#94A3B8]">
-                    <span className="text-[#06B6D4]">passion</span>:{' '}
-                    <span className="text-[#A3E635]">'Building Amazing Things'</span>
+                    <span className="text-[#06B6D4]">location</span>:{' '}
+                    <span className="text-[#A3E635]">'West Bengal, India'</span>
                   </div>
                   <div className="text-[#94A3B8]">
                     <span className="text-[#F59E0B]">{'}'}</span>

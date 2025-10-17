@@ -8,9 +8,9 @@ export default function FooterSection() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold font-mono text-[#F1F5F9]">&lt;Dev/&gt;</h3>
+            <h3 className="text-2xl font-bold font-mono text-[#F1F5F9]">&lt;Ruhul Amin/&gt;</h3>
             <p className="text-[#94A3B8] text-sm leading-relaxed">
-              Building modern web experiences with passion and precision. Let's create something amazing together.
+              Software Developer from West Bengal, India. Building scalable solutions with Java, Python, and JavaScript. Let's create something amazing together.
             </p>
           </div>
 

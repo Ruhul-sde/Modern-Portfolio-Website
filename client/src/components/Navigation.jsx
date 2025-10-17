@@ -34,10 +34,21 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 gap-4">
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-xl font-bold font-mono text-[#F1F5F9] hover-elevate active-elevate-2 px-4 py-2 rounded-md transition-colors"
+            className="hover-elevate active-elevate-2 px-2 py-2 rounded-md transition-transform"
             data-testid="link-logo"
           >
-            &lt;Dev/&gt;
+            <img 
+              src="/src/assets/logo.png" 
+              alt="Logo" 
+              className="h-10 w-auto object-contain"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'inline';
+              }}
+            />
+            <span className="text-xl font-bold font-mono text-[#F1F5F9] hidden">
+              &lt;Dev/&gt;
+            </span>
           </button>
 
           <div className="hidden md:flex items-center gap-8">
@@ -98,6 +109,7 @@ export default function Navigation() {
               size="icon"
               className="text-[#F1F5F9] hover:text-[#06B6D4]"
               data-testid="button-github"
+              onClick={() => window.open('https://github.com/ruhulamin', '_blank')}
             >
               <Github className="w-5 h-5" />
             </Button>
@@ -106,13 +118,15 @@ export default function Navigation() {
               size="icon"
               className="text-[#F1F5F9] hover:text-[#06B6D4]"
               data-testid="button-linkedin"
+              onClick={() => window.open('mailto:contact@ruhulamin.org', '_blank')}
             >
-              <Linkedin className="w-5 h-5" />
+              <Mail className="w-5 h-5" />
             </Button>
             <Button
               variant="default"
               className="bg-[#3B82F6] hover:bg-[#2563EB] text-white"
               data-testid="button-resume"
+              onClick={() => window.open('/src/assets/resume.pdf', '_blank')}
             >
               Resume
             </Button>
@@ -187,7 +201,11 @@ export default function Navigation() {
               <Button variant="ghost" size="icon" className="text-[#F1F5F9]">
                 <Linkedin className="w-5 h-5" />
               </Button>
-              <Button variant="default" className="bg-[#3B82F6] text-white flex-1">
+              <Button 
+                variant="default" 
+                className="bg-[#3B82F6] text-white flex-1"
+                onClick={() => window.open('/src/assets/resume.pdf', '_blank')}
+              >
                 Resume
               </Button>
             </div>
