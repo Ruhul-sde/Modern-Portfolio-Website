@@ -15,7 +15,7 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0',
-    port: 5000,
+    port: 5001,
     strictPort: true,
     hmr: {
       protocol: 'wss',
@@ -25,6 +25,6 @@ export default defineConfig({
   },
   preview: {
     host: '0.0.0.0',
-    port: 5000
+    port: 5001
   }
 })
