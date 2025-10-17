@@ -1,35 +1,18 @@
 import { Card } from '../components/ui/card';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, LineChart, Line } from 'recharts';
 import { TrendingUp, Code, GitBranch, Award } from 'lucide-react';
-
-const skillsData = [
-  { skill: 'React', proficiency: 90 },
-  { skill: 'TypeScript', proficiency: 85 },
-  { skill: 'Node.js', proficiency: 80 },
-  { skill: 'Python', proficiency: 75 },
-  { skill: 'SQL', proficiency: 70 },
-  { skill: 'AWS', proficiency: 65 },
-];
-
-const radarData = [
-  { subject: 'Frontend', A: 90 },
-  { subject: 'Backend', A: 75 },
-  { subject: 'DevOps', A: 65 },
-  { subject: 'Database', A: 70 },
-  { subject: 'Design', A: 80 },
-  { subject: 'Testing', A: 75 },
-];
-
-const contributionData = [
-  { month: 'Jan', commits: 45 },
-  { month: 'Feb', commits: 52 },
-  { month: 'Mar', commits: 61 },
-  { month: 'Apr', commits: 58 },
-  { month: 'May', commits: 70 },
-  { month: 'Jun', commits: 65 },
-];
+import { useQuery } from "@tanstack/react-query";
+import { api } from '../lib/api';
 
 export default function DashboardSection() {
+  const { data: dashboard, isLoading } = useQuery({
+    queryKey: ['dashboard'],
+    queryFn: api.getDashboard
+  });
+
+  if (isLoading || !dashboard) {
+    return <div className="text-center py-24 text-[#94A3B8]">Loading dashboard...</div>;
+  }
   return (
     <section id="dashboard" className="relative py-24 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -47,7 +30,7 @@ export default function DashboardSection() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-[#94A3B8] mb-1">Total Projects</p>
-                <p className="text-3xl font-bold font-mono text-[#06B6D4]">15</p>
+                <p className="text-3xl font-bold font-mono text-[#06B6D4]">{dashboard.totalProjects}</p>
               </div>
               <div className="p-3 bg-[#3B82F6]/20 rounded-lg">
                 <Code className="w-6 h-6 text-[#3B82F6]" />
@@ -63,7 +46,7 @@ export default function DashboardSection() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-[#94A3B8] mb-1">Commits</p>
-                <p className="text-3xl font-bold font-mono text-[#06B6D4]">351</p>
+                <p className="text-3xl font-bold font-mono text-[#06B6D4]">{dashboard.commits}</p>
               </div>
               <div className="p-3 bg-[#06B6D4]/20 rounded-lg">
                 <GitBranch className="w-6 h-6 text-[#06B6D4]" />
@@ -79,7 +62,7 @@ export default function DashboardSection() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-[#94A3B8] mb-1">Technologies</p>
-                <p className="text-3xl font-bold font-mono text-[#06B6D4]">12+</p>
+                <p className="text-3xl font-bold font-mono text-[#06B6D4]">{dashboard.technologies}</p>
               </div>
               <div className="p-3 bg-[#C084FC]/20 rounded-lg">
                 <Award className="w-6 h-6 text-[#C084FC]" />
@@ -94,7 +77,7 @@ export default function DashboardSection() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-[#94A3B8] mb-1">Experience</p>
-                <p className="text-3xl font-bold font-mono text-[#06B6D4]">1+ Yrs</p>
+                <p className="text-3xl font-bold font-mono text-[#06B6D4]">{dashboard.experience}</p>
               </div>
               <div className="p-3 bg-[#10B981]/20 rounded-lg">
                 <TrendingUp className="w-6 h-6 text-[#10B981]" />
@@ -110,7 +93,7 @@ export default function DashboardSection() {
           <Card className="bg-[#0F172A]/60 backdrop-blur-xl border-white/10 p-6" data-testid="card-skills-chart">
             <h3 className="text-xl font-semibold text-[#F1F5F9] mb-6">Skills Proficiency</h3>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={skillsData}>
+              <BarChart data={dashboard.skillsData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#1E293B" />
                 <XAxis dataKey="skill" stroke="#94A3B8" style={{ fontSize: '12px' }} />
                 <YAxis stroke="#94A3B8" style={{ fontSize: '12px' }} />
@@ -130,11 +113,11 @@ export default function DashboardSection() {
           <Card className="bg-[#0F172A]/60 backdrop-blur-xl border-white/10 p-6" data-testid="card-radar-chart">
             <h3 className="text-xl font-semibold text-[#F1F5F9] mb-6">Technical Expertise</h3>
             <ResponsiveContainer width="100%" height={300}>
-              <RadarChart data={radarData}>
+              <RadarChart data={dashboard.radarData}>
                 <PolarGrid stroke="#1E293B" />
                 <PolarAngleAxis dataKey="subject" stroke="#94A3B8" style={{ fontSize: '12px' }} />
                 <PolarRadiusAxis stroke="#94A3B8" />
-                <Radar name="Skills" dataKey="A" stroke="#06B6D4" fill="#06B6D4" fillOpacity={0.6} />
+                <Radar name="Skills" dataKey="value" stroke="#06B6D4" fill="#06B6D4" fillOpacity={0.6} />
               </RadarChart>
             </ResponsiveContainer>
           </Card>
@@ -142,7 +125,7 @@ export default function DashboardSection() {
           <Card className="bg-[#0F172A]/60 backdrop-blur-xl border-white/10 p-6 lg:col-span-2" data-testid="card-activity-chart">
             <h3 className="text-xl font-semibold text-[#F1F5F9] mb-6">GitHub Activity</h3>
             <ResponsiveContainer width="100%" height={250}>
-              <LineChart data={contributionData}>
+              <LineChart data={dashboard.contributionData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#1E293B" />
                 <XAxis dataKey="month" stroke="#94A3B8" style={{ fontSize: '12px' }} />
                 <YAxis stroke="#94A3B8" style={{ fontSize: '12px' }} />

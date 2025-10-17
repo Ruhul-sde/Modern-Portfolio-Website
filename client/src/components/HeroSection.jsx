@@ -1,14 +1,25 @@
 import { Button } from './ui/button';
 import { ArrowDown, Sparkles, Code2 } from 'lucide-react';
 import ContactDialog from './ContactDialog';
+import { useQuery } from "@tanstack/react-query";
+import { api } from '../lib/api';
 
 export default function HeroSection() {
+  const { data: hero, isLoading } = useQuery({
+    queryKey: ['hero'],
+    queryFn: api.getHero
+  });
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  if (isLoading || !hero) {
+    return <div className="min-h-screen flex items-center justify-center text-[#94A3B8]">Loading...</div>;
+  }
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 lg:px-8 overflow-hidden">
@@ -22,15 +33,14 @@ export default function HeroSection() {
 
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold text-[#F1F5F9] tracking-tight">
-                Ruhul Amin
+                {hero.name}
                 <br />
                 <span className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] bg-clip-text text-transparent">
-                  Software Developer
+                  {hero.role}
                 </span>
               </h1>
               <p className="text-lg lg:text-xl text-[#94A3B8] max-w-xl leading-relaxed">
-                Passionate about full-stack development using Java, Python, and JavaScript. 
-                Skilled in creating scalable solutions with React.js and Node.js.
+                {hero.description}
               </p>
             </div>
 
@@ -56,17 +66,17 @@ export default function HeroSection() {
 
             <div className="flex items-center gap-6 pt-4">
               <div className="text-center">
-                <div className="text-3xl font-bold font-mono text-[#06B6D4]">8+</div>
-                <div className="text-sm text-[#94A3B8]">Months Exp</div>
+                <div className="text-3xl font-bold font-mono text-[#06B6D4]">{hero.stats.experience}</div>
+                <div className="text-sm text-[#94A3B8]">Experience</div>
               </div>
               <div className="h-12 w-px bg-white/10" />
               <div className="text-center">
-                <div className="text-3xl font-bold font-mono text-[#06B6D4]">3+</div>
+                <div className="text-3xl font-bold font-mono text-[#06B6D4]">{hero.stats.projects}</div>
                 <div className="text-sm text-[#94A3B8]">Projects</div>
               </div>
               <div className="h-12 w-px bg-white/10" />
               <div className="text-center">
-                <div className="text-3xl font-bold font-mono text-[#06B6D4]">15+</div>
+                <div className="text-3xl font-bold font-mono text-[#06B6D4]">{hero.stats.techStack}</div>
                 <div className="text-sm text-[#94A3B8]">Tech Stack</div>
               </div>
             </div>

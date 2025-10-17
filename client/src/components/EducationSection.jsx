@@ -1,24 +1,18 @@
 import { Card } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { GraduationCap, Award, BookOpen, Trophy } from 'lucide-react';
+import { useQuery } from "@tanstack/react-query";
+import { api } from '../lib/api';
 
 export default function EducationSection() {
-  const education = [
-    {
-      degree: 'Bachelor of Technology in Computer Science and Engineering',
-      institution: 'Cooch Behar Government Engineering College',
-      period: '2020 - 2024',
-      gpa: '8.56/10',
-      description: 'Graduated with expertise in software engineering, web development, and data structures. Strong foundation in algorithms and artificial intelligence.',
-      achievements: [
-        'Cumulative CGPA: 8.56',
-        'Completed Madhyamik from Mitna High School with 76.7%',
-        'Strong academic performance throughout the program',
-        'Developed multiple real-world projects',
-      ],
-      courses: ['Data Analysis', 'Software Engineering', 'Operating Systems', 'Algorithms', 'Artificial Intelligence', 'Database Systems'],
-    },
-  ];
+  const { data: education = [], isLoading } = useQuery({
+    queryKey: ['education'],
+    queryFn: api.getEducation
+  });
+
+  if (isLoading) {
+    return <div className="text-center py-24 text-[#94A3B8]">Loading education...</div>;
+  }
 
   const certifications = [
     {

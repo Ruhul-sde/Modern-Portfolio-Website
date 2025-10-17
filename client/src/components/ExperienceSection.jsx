@@ -1,22 +1,7 @@
 import { Card } from '../components/ui/card';
 import { GraduationCap, Briefcase, Award } from 'lucide-react';
-
-const experiences = [
-  {
-    type: 'work',
-    title: 'Trainee Engineer',
-    company: 'Akshay Software Technologies',
-    period: 'Ongoing',
-    description: 'Collaborating with cross-functional teams to develop and implement scalable web applications using the MERN stack. Playing a key role in designing responsive user interfaces and facilitating seamless integration of RESTful APIs.',
-    achievements: [
-      'Developed scalable web applications using MERN stack',
-      'Designed responsive user interfaces for enhanced UX',
-      'Integrated RESTful APIs to enhance functionality',
-      'Managed debugging and optimized application performance',
-      'Partnered with senior developers on project milestones'
-    ],
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { api } from '../lib/api';
 
 const certifications = [
   'Full-Stack Development (MERN)',
@@ -25,6 +10,14 @@ const certifications = [
 ];
 
 export default function ExperienceSection() {
+  const { data: experiences = [], isLoading } = useQuery({
+    queryKey: ['experiences'],
+    queryFn: api.getExperiences
+  });
+
+  if (isLoading) {
+    return <div className="text-center py-24 text-[#94A3B8]">Loading experiences...</div>;
+  }
   return (
     <section id="experience" className="relative py-24 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">

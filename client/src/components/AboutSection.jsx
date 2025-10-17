@@ -1,7 +1,14 @@
 import { Card } from '../components/ui/card';
 import { Code2, Rocket, Lightbulb, Users } from 'lucide-react';
+import { useQuery } from "@tanstack/react-query";
+import { api } from '../lib/api';
 
 export default function AboutSection() {
+  const { data: about, isLoading } = useQuery({
+    queryKey: ['about'],
+    queryFn: api.getAbout
+  });
+
   const values = [
     {
       icon: Code2,
@@ -37,37 +44,34 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-[#F1F5F9]">Hi, I'm Ruhul Amin</h3>
-              <p className="text-[#94A3B8] leading-relaxed">
-                I'm a passionate Software Developer with expertise in full-stack development using Java, Python, and JavaScript. 
-                Skilled in creating scalable solutions with React.js and Node.js, and experienced in delivering high-quality 
-                projects like AI-powered apps and collaborative code editor.
-              </p>
-              <p className="text-[#94A3B8] leading-relaxed">
-                I specialize in full-stack development with the MERN stack. I believe in writing clean, maintainable code 
-                and staying up-to-date with the latest industry trends. Currently working as a Trainee Engineer at Akshay 
-                Software Technologies, where I collaborate with cross-functional teams to develop scalable web applications.
-              </p>
-              <p className="text-[#94A3B8] leading-relaxed">
-                My approach to development is user-centered and detail-oriented. I'm eager to leverage my technical skills 
-                and problem-solving abilities in a dynamic, agile environment. Every project is an opportunity to learn 
-                something new and push my skills further.
-              </p>
-            </div>
+        {isLoading || !about ? (
+          <div className="text-center py-12 text-[#94A3B8]">Loading...</div>
+        ) : (
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-semibold text-[#F1F5F9]">Hi, I'm {about.name}</h3>
+                {about.bio.map((paragraph, index) => (
+                  <p key={index} className="text-[#94A3B8] leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <div className="flex items-center gap-2 px-4 py-2 bg-[#3B82F6]/10 border border-[#3B82F6]/20 rounded-lg">
-                <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-                <span className="text-sm text-[#F1F5F9]">Available for freelance</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-[#06B6D4]/10 border border-[#06B6D4]/20 rounded-lg">
-                <span className="text-sm text-[#F1F5F9]">Open to opportunities</span>
+              <div className="flex flex-wrap gap-4 pt-4">
+                {about.availability.freelance && (
+                  <div className="flex items-center gap-2 px-4 py-2 bg-[#3B82F6]/10 border border-[#3B82F6]/20 rounded-lg">
+                    <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+                    <span className="text-sm text-[#F1F5F9]">Available for freelance</span>
+                  </div>
+                )}
+                {about.availability.opportunities && (
+                  <div className="flex items-center gap-2 px-4 py-2 bg-[#06B6D4]/10 border border-[#06B6D4]/20 rounded-lg">
+                    <span className="text-sm text-[#F1F5F9]">Open to opportunities</span>
+                  </div>
+                )}
               </div>
             </div>
-          </div>
 
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] rounded-3xl blur-3xl opacity-20" />
@@ -79,29 +83,15 @@ export default function AboutSection() {
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-1 h-8 bg-[#3B82F6] rounded-full" />
-                    <div>
-                      <p className="text-[#F1F5F9] font-medium">Full Stack Development</p>
-                      <p className="text-[#94A3B8] text-sm">React, Node.js, TypeScript</p>
+                  {about.currentFocus.map((focus, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className="w-1 h-8 rounded-full" style={{ backgroundColor: focus.color }} />
+                      <div>
+                        <p className="text-[#F1F5F9] font-medium">{focus.title}</p>
+                        <p className="text-[#94A3B8] text-sm">{focus.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <div className="w-1 h-8 bg-[#06B6D4] rounded-full" />
-                    <div>
-                      <p className="text-[#F1F5F9] font-medium">UI/UX Design</p>
-                      <p className="text-[#94A3B8] text-sm">TailwindCSS, Figma</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <div className="w-1 h-8 bg-[#C084FC] rounded-full" />
-                    <div>
-                      <p className="text-[#F1F5F9] font-medium">Cloud & DevOps</p>
-                      <p className="text-[#94A3B8] text-sm">AWS, Docker, CI/CD</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
                 <div className="pt-4 border-t border-white/10">
@@ -121,6 +111,7 @@ export default function AboutSection() {
             </Card>
           </div>
         </div>
+        )}
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((value, index) => (
